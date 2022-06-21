@@ -298,8 +298,8 @@ class OctolabelPlugin(octoprint.plugin.EventHandlerPlugin,
 
 		post_result ="ok"
 
-		url = 'http://' + self._settings.get(["printerip"], merged=True) + ':8765/api/print/namebadge'
-		myobj = {'first': self._settings.get(["username"], merged=True), 'last': message, 'company': ''}
+		url = 'http://' + self._settings.get(["printerip"], merged=True) + '/api/print/text'
+		myobj = {'text': message, 'font_family': 'DejaVu Sans (Condensed Bold)', 'font_size': 30. 'label_size': 62, 'align': center, 'margin_top': 24, 'margin_bottom': 45, 'margin_left': 35, 'margin_right': 35}
 
 		# sending post request
 		requests.get(url, data=myobj)
